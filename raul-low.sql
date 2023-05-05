@@ -32,6 +32,7 @@ SELECT SUM(cantidad) AS total_inscritos FROM inscritos;
 
 -- ¿Cuál o cuáles son los registros de mayor antigüedad?
 SELECT * FROM inscritos ORDER BY fecha ASC LIMIT 5;
+SELECT * FROM inscritos WHERE fecha = (SELECT MIN(fecha) FROM inscritos);
 
 -- ¿Cuántos inscritos hay por día?
 SELECT fecha, SUM(cantidad) AS inscritos_dia FROM inscritos GROUP BY fecha ORDER BY fecha ASC;
